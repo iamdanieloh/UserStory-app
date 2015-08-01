@@ -81,7 +81,7 @@ module.exports = function(app, express) {
 	})
 
 
-	app.use(function(req, res, next) {
+	api.use(function(req, res, next) {
 
 		console.log('Somebody just came to our app!');
 
@@ -101,6 +101,12 @@ module.exports = function(app, express) {
 			res.status(403).send({success: false, message:"No token provided"})
 		}
 
+	})
+
+
+	api.get('/', function(req, res) {
+
+		res.json('Hello World!')
 	})
 
 
