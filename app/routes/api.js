@@ -81,7 +81,7 @@ module.exports = function(app, express) {
 		})
 	})
 
-
+	//middleware
 	api.use(function(req, res, next) {
 
 		console.log('Somebody just came to our app!');
@@ -140,6 +140,12 @@ module.exports = function(app, express) {
 			})
 
 		})
+
+
+	api.get('/me', function(req, res) {
+		
+		res.json(req.decoded)
+	})
 
 
 
