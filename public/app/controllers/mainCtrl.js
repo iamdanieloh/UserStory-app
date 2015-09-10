@@ -27,7 +27,7 @@ angular.module('mainCtrl', [])
 
 		vm.error = '';
 
-		Auth.login(vm.loginData.username, vm.loginData.password) {
+		Auth.login(vm.loginData.username, vm.loginData.password) 
 
 			.success(function(data) {
 				vm.processing = false;
@@ -43,7 +43,6 @@ angular.module('mainCtrl', [])
 					vm.error = data.message;
 			});
 
-		}
 
 	}
 
