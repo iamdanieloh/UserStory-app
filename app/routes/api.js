@@ -18,7 +18,7 @@ function createToken(user) {
 
 }
 
-module.exports = function(app, express) {
+module.exports = function(app, express, io) {
 
 	var api = express.Router();
 	
@@ -58,8 +58,8 @@ module.exports = function(app, express) {
 			}
 
 			res.json(users);
-		})
-	})
+		});
+	});
 
 
 	api.post('/login', function(req, res) {
@@ -124,11 +124,12 @@ module.exports = function(app, express) {
 
 			})
 
-			story.save(function(err) {
+			story.save(function(err, newStory) {
 				if(err) {
 					res.send(err);
 					return
 				}
+				io.emit('story', newStory)
 				res.json({message: "New Story Created"})
 
 			})

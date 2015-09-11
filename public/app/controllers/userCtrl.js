@@ -30,7 +30,7 @@ angular.module('userCtrl', ['userService'])
 				vm.userData = {};
 				vm.message = response.data.message;
 
-				$window.localStorage.setItem('token', respone.data.token);
+				$window.localStorage.setItem('token', response.data.token);
 				$location.path('/');
 			})
 	}
